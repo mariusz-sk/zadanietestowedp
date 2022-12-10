@@ -27,13 +27,11 @@ namespace AgentSimulator
             _transform = GetComponent<Transform>();
         }
 
-        private void Start()
+        private void OnEnable()
         {
-            _targetDirection = _transform.forward;
-
+            CalculateNewOrientation();
             CalculateNextChangeDirectionTime();
         }
-
 
         private void Update()
         {
