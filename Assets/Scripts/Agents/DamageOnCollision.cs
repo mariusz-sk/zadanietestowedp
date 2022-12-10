@@ -14,7 +14,8 @@ namespace AgentSimulator
 
         private void OnCollisionEnter(Collision collision)
         {
-            if (collision.collider.TryGetComponent<Damageable>(out Damageable damageable))
+            var damageable = collision.collider.GetComponentInParent<Damageable>();
+            if (damageable != null)
             {
                 damageable.TakeDamage(_damageValue);
             }
