@@ -194,6 +194,9 @@ GameObject:
   - component: {fileID: 411613699}
   - component: {fileID: 858227054}
   - component: {fileID: 1117301226}
+  - component: {fileID: 1117301233}
+  - component: {fileID: 1117301232}
+  - component: {fileID: 1117301234}
   m_Layer: 20
   m_Name: BorisAgentPrefab
   m_TagString: Untagged
@@ -289,6 +292,44 @@ MonoBehaviour:
   _rotationSpeed: 45
   _directionAngleStep: 45
   _changeDirectionDelay: 4
+--- !u!114 &1117301233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4894613273543465847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc7600635e40b3e4fa906cc0a87d0cf8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _initialValue: 3
+--- !u!114 &1117301232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4894613273543465847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f39bd48a50a99548877af732590fce1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1117301234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4894613273543465847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70247fa268f972048a2f094b23e1167d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damageValue: 1
 --- !u!1 &4970634871173051935
 GameObject:
   m_ObjectHideFlags: 0
