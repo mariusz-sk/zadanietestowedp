@@ -192,6 +192,7 @@ GameObject:
   - component: {fileID: 411613700}
   - component: {fileID: 411613699}
   - component: {fileID: 858227054}
+  - component: {fileID: 1117301226}
   m_Layer: 20
   m_Name: BorisAgentPrefab
   m_TagString: Untagged
@@ -260,6 +261,21 @@ MonoBehaviour:
   layersToBounceOff:
     serializedVersion: 2
     m_Bits: 1049600
+--- !u!114 &1117301226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4894613273543465847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92e80f8a95e23914b975ef6de3213021, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rotationSpeed: 45
+  _directionAngleStep: 45
+  _changeDirectionDelay: 4
 --- !u!1 &4970634871173051935
 GameObject:
   m_ObjectHideFlags: 0

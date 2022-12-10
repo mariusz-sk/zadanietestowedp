@@ -192,6 +192,7 @@ GameObject:
   - component: {fileID: 1461330980}
   - component: {fileID: 1461330979}
   - component: {fileID: 1258369478}
+  - component: {fileID: 1368031067}
   m_Layer: 20
   m_Name: JohnAgentPrefab
   m_TagString: Untagged
@@ -260,6 +261,21 @@ MonoBehaviour:
   layersToBounceOff:
     serializedVersion: 2
     m_Bits: 1049600
+--- !u!114 &1368031067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4894613273543465847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92e80f8a95e23914b975ef6de3213021, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rotationSpeed: 45
+  _directionAngleStep: 45
+  _changeDirectionDelay: 4
 --- !u!1 &4970634871173051935
 GameObject:
   m_ObjectHideFlags: 0
