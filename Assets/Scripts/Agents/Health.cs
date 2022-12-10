@@ -18,6 +18,11 @@ namespace AgentSimulator
 
         private int _currentValue;
 
+        public void Initialize()
+        {
+            _currentValue = _initialValue;    
+        }
+
         public void ChangeHealthValue(int amountToChange)
         {
             if (amountToChange == 0)

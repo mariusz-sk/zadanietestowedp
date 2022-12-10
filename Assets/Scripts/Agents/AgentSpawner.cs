@@ -53,7 +53,7 @@ namespace AgentSimulator
                 {
                     if (agent != null)
                     {
-                        agent.OnAgentDeactivatedEvent += OnAgentDeactivatedEvent;
+                        agent.OnKilledEvent += OnAgentKilledEvent;
                     }
                 }
             }
@@ -67,7 +67,7 @@ namespace AgentSimulator
                 {
                     if (agent != null)
                     {
-                        agent.OnAgentDeactivatedEvent -= OnAgentDeactivatedEvent;
+                        agent.OnKilledEvent -= OnAgentKilledEvent;
                     }
                 }
             }
@@ -137,7 +137,7 @@ namespace AgentSimulator
             return spawnedAgent;
         }
 
-        private void OnAgentDeactivatedEvent(Agent agent)
+        private void OnAgentKilledEvent(Agent agent)
         {
             foreach (var agentList in _agentLists.Values)
             {
@@ -148,8 +148,6 @@ namespace AgentSimulator
                     break;
                 }
             }
-
-            
         }
     }
 }
