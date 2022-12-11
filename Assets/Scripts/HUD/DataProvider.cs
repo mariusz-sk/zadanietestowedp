@@ -7,7 +7,7 @@ namespace AgentSimulator.UI
     public class DataProvider : MonoBehaviour
     {
         [SerializeField]
-        private AgentSpawner _agentSpawner;
+        private Agents.AgentSpawner _agentSpawner;
 
         public delegate void DataProviderEventHandler();
         public event DataProviderEventHandler DataChangedEvent;

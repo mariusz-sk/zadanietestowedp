@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-namespace AgentSimulator
+namespace AgentSimulator.Agents
 {
     public class SimpleMover : MonoBehaviour
     {
