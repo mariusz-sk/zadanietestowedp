@@ -39,8 +39,20 @@ namespace AgentSimulator.UI
         {
             if (_spawnedAgentsCountText != null)
             {
-                var text = string.Format($"Agent count: {_dataProvider.SpawnedAgentsNumber}/{_dataProvider.MaxAllowedAgentsNumber}");
-                _spawnedAgentsCountText.text = text;
+                int spawnedAgentsNumber = _dataProvider.SpawnedAgentsNumber;
+                int maxAllowedAgentsNumber = _dataProvider.MaxAllowedAgentsNumber;
+       
+                _spawnedAgentsCountText.text = $"Agent count: {spawnedAgentsNumber}/{maxAllowedAgentsNumber}";
+            }
+
+            if (_selectedAgentNameText != null)
+            {
+                _selectedAgentNameText.text = $"Name: {_dataProvider.SelectedAgentName}";
+            }
+
+            if (_selectedAgentHealthText != null)
+            {
+                _selectedAgentHealthText.text = _dataProvider.IsAnyAgentSelected ? $"Health: {_dataProvider.SelectedAgentHealthValue}" : "Health:";
             }
         }
     }

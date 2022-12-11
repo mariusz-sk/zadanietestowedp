@@ -9,6 +9,9 @@ namespace AgentSimulator.UI
         [SerializeField]
         private Agents.AgentSpawner _agentSpawner;
 
+        [SerializeField]
+        private Player.SelectionManager _selectionManager;
+
         public delegate void DataProviderEventHandler();
         public event DataProviderEventHandler DataChangedEvent;
 
@@ -28,22 +31,69 @@ namespace AgentSimulator.UI
             }
         }
 
+        public bool IsAnyAgentSelected
+        {
+            get
+            {
+                return _selectionManager != null ? _selectionManager.IsAnyEntitySelected : false;
+            }
+        }
+
+        public string SelectedAgentName
+        {
+            get
+            {
+                if (_selectionManager != null && _selectionManager.SelectedEntity != null)
+                    return _selectionManager.SelectedEntity.name;
+                else
+                    return "";
+            }
+        }
+
+        public int SelectedAgentHealthValue
+        {
+            get
+            {
+                if (_selectionManager != null && _selectionManager.SelectedEntity != null)
+                {
+                    if (_selectionManager.SelectedEntity.TryGetComponent<Agents.Health>(out Agents.Health health))
+                    {
+                        return health.CurrentValue;
+                    }
+                }
+
+                return 0;
+            }
+        }
+
         private void OnEnable()
         {
-            if (_agentSpawner == null)
-                return;
+            if (_agentSpawner != null)
+            {
+                _agentSpawner.AgentSpawnedEvent += OnAgentSpawned;
+                _agentSpawner.AgentKilledEvent += OnAgentKilled;
+            }
 
-            _agentSpawner.AgentSpawnedEvent += OnAgentSpawned;
-            _agentSpawner.AgentKilledEvent += OnAgentKilled;
+            if (_selectionManager != null)
+            {
+                _selectionManager.EntitySelectedEvent += OnEntitySelected;
+                _selectionManager.EntityDeselectedEvent += OnEntityDeselected;
+            }
         }
 
         private void OnDisable()
         {
-            if (_agentSpawner == null)
-                return;
+            if (_agentSpawner != null)
+            {
+                _agentSpawner.AgentSpawnedEvent -= OnAgentSpawned;
+                _agentSpawner.AgentKilledEvent -= OnAgentKilled;
+            }
 
-            _agentSpawner.AgentSpawnedEvent -= OnAgentSpawned;
-            _agentSpawner.AgentKilledEvent -= OnAgentKilled;
+            if (_selectionManager != null)
+            {
+                _selectionManager.EntitySelectedEvent -= OnEntitySelected;
+                _selectionManager.EntityDeselectedEvent -= OnEntityDeselected;
+            }
         }
 
         private void OnAgentSpawned()
@@ -52,6 +102,16 @@ namespace AgentSimulator.UI
         }
         
         private void OnAgentKilled()
+        {
+            DataChangedEvent?.Invoke();
+        }
+
+        private void OnEntitySelected()
+        {
+            DataChangedEvent?.Invoke();
+        }
+
+        private void OnEntityDeselected()
         {
             DataChangedEvent?.Invoke();
         }
