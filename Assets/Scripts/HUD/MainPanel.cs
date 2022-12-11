@@ -47,12 +47,12 @@ namespace AgentSimulator.UI
 
             if (_selectedAgentNameText != null)
             {
-                _selectedAgentNameText.text = $"Name: {_dataProvider.SelectedAgentName}";
+                _selectedAgentNameText.text = _dataProvider.IsAnyAgentSelected ? $"{_dataProvider.SelectedAgentName}" : "";
             }
 
             if (_selectedAgentHealthText != null)
             {
-                _selectedAgentHealthText.text = _dataProvider.IsAnyAgentSelected ? $"Health: {_dataProvider.SelectedAgentHealthValue}" : "Health:";
+                _selectedAgentHealthText.text = _dataProvider.IsAnyAgentSelected ? $"Health: {_dataProvider.SelectedAgentHealthValue}" : "";
             }
         }
     }

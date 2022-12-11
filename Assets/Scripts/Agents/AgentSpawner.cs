@@ -33,6 +33,8 @@ namespace AgentSimulator.Agents
 
         private float _nextSpawnAgentTime = 0;
 
+        private int _nextAgentNumber = 0;
+
         private void Awake()
         {
             if (_agentPrefabs == null || _agentPrefabs.Length < 1)
@@ -118,8 +120,10 @@ namespace AgentSimulator.Agents
 
             if (newAgent != null)
             {
-                newAgent.Spawn(position);
-                
+                _nextAgentNumber++;
+                string agentName = string.Format("{0}_{1,0:D4}", _agentPrefabs[prefabIndex].name, _nextAgentNumber);
+
+                newAgent.Spawn(position, agentName);
                 _numSpawnedAgents++;
 
                 AgentSpawnedEvent?.Invoke();

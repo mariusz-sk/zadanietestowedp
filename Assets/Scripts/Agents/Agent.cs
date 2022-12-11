@@ -13,10 +13,11 @@ namespace AgentSimulator.Agents
 
         private Health _health;
 
-        public void Spawn(Vector3 initialPosition)
+        public void Spawn(Vector3 initialPosition, string instanceName)
         {
             GetComponent<Transform>().position = initialPosition;
             gameObject.SetActive(true);
+            gameObject.name = instanceName;
 
             if (_health != null)
             {

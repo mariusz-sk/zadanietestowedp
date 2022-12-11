@@ -153,6 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _agentSpawner: {fileID: 300021540}
+  _selectionManager: {fileID: 1665651893}
 --- !u!4 &22432822
 Transform:
   m_ObjectHideFlags: 0
@@ -286,8 +287,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.027, y: 0.68951035}
   m_AnchorMax: {x: 0.96322644, y: 0.8215103}
-  m_AnchoredPosition: {x: -0.36250305, y: 0}
-  m_SizeDelta: {x: -0.12509155, y: 0.21620178}
+  m_AnchoredPosition: {x: -0.3625183, y: 0.05404663}
+  m_SizeDelta: {x: -0.1251, y: 0.10811}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &558861654
 MonoBehaviour:
@@ -336,10 +337,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 32
-  m_fontSizeBase: 36
+  m_fontSize: 12
+  m_fontSizeBase: 12
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -372,7 +373,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0.012039185, w: 0}
+  m_margin: {x: 0, y: 0, z: 0.012039185, w: -0.000020511265}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -561,7 +562,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.027, y: 0.83258337}
   m_AnchorMax: {x: 0.96322644, y: 0.96513534}
-  m_AnchoredPosition: {x: -0.36250305, y: 0.19190979}
+  m_AnchoredPosition: {x: -0.3625183, y: 0.19190979}
   m_SizeDelta: {x: -0.12509155, y: 0.21620178}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &712250088
@@ -611,10 +612,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 32.15
-  m_fontSizeBase: 36
+  m_fontSize: 12
+  m_fontSizeBase: 12
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -732,10 +733,10 @@ RectTransform:
   m_Father: {fileID: 1114188596}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5453768}
-  m_AnchorMax: {x: 0.26700002, y: 1}
-  m_AnchoredPosition: {x: 0.23291016, y: 0.0725708}
-  m_SizeDelta: {x: 0.46591187, y: -0.14529419}
+  m_AnchorMin: {x: 0, y: 0.54200006}
+  m_AnchorMax: {x: 0.22200002, y: 1}
+  m_AnchoredPosition: {x: -0.40161133, y: 0.5725403}
+  m_SizeDelta: {x: -0.8031006, y: -1.1453}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &907273823
 MonoBehaviour:
@@ -867,14 +868,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.22175252, y: -0, z: -0, w: 0.97510296}
-  m_LocalPosition: {x: 0, y: 4.48, z: -9.1}
+  m_LocalRotation: {x: 0.25010282, y: 0.24856447, z: -0.066602565, w: 0.93339616}
+  m_LocalPosition: {x: -6.32, y: 4.15, z: -7.93}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 25.624, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 30, y: 29.824, z: 0}
 --- !u!1 &1082942415
 GameObject:
   m_ObjectHideFlags: 0
@@ -960,10 +961,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30.8
-  m_fontSizeBase: 36
+  m_fontSize: 12
+  m_fontSizeBase: 12
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -1058,7 +1059,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -1196,10 +1197,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30.65
-  m_fontSizeBase: 36
+  m_fontSize: 12
+  m_fontSizeBase: 12
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
