@@ -25,7 +25,7 @@ namespace AgentSimulator.Player
 
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
-                _selectionManager.TrySelectEntityInScene(_camera.ScreenPointToRay(Input.mousePosition));
+                _selectionManager.TrySelectAgentInScene(_camera.ScreenPointToRay(Input.mousePosition));
             }
         }
     }

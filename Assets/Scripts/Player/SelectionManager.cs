@@ -10,64 +10,64 @@ namespace AgentSimulator.Player
         private LayerMask _layerMask;
 
 
-        public bool IsAnyEntitySelected { get => _selectedEntity != null; }
-        public SelectableEntity SelectedEntity { get => _selectedEntity; }
+        public bool IsAnyAgentSelected { get => _selectedAgent != null; }
+        public SelectableAgent SelectedAgent { get => _selectedAgent; }
 
         public delegate void SelectionManagerHandler();
-        public event SelectionManagerHandler EntitySelectedEvent;
-        public event SelectionManagerHandler EntityDeselectedEvent;
+        public event SelectionManagerHandler AgentSelectedEvent;
+        public event SelectionManagerHandler AgentDeselectedEvent;
 
 
-        private SelectableEntity _selectedEntity;
+        private SelectableAgent _selectedAgent;
 
 
-        public bool TrySelectEntityInScene(Ray ray)
+        public bool TrySelectAgentInScene(Ray ray)
         {
             DeselectSelected();
 
             if (Physics.Raycast(ray, out RaycastHit hitInfo, 100.0f, _layerMask))
             {
-                var selectableEntity = hitInfo.collider.GetComponentInParent<SelectableEntity>();
-                if (selectableEntity != null)
+                var selectableAgent = hitInfo.collider.GetComponentInParent<SelectableAgent>();
+                if (selectableAgent != null)
                 {
-                    SelectEntity(selectableEntity);
+                    SelectAgent(selectableAgent);
                 }
             }
 
-            return _selectedEntity != null;
+            return _selectedAgent != null;
         }
 
-        private void OnEntityDeselected(SelectableEntity selectableEntity)
+        private void OnAgentDeselected(SelectableAgent selectableAgent)
         {
-            if (selectableEntity != null && selectableEntity == _selectedEntity)
+            if (selectableAgent != null && selectableAgent == _selectedAgent)
             {
                 DeselectSelected();
             }
         }
 
-        private void SelectEntity(SelectableEntity selectableEntity)
+        private void SelectAgent(SelectableAgent selectableAgent)
         {
-            _selectedEntity = selectableEntity;
+            _selectedAgent = selectableAgent;
 
-            if (_selectedEntity != null)
+            if (_selectedAgent != null)
             {
-                _selectedEntity.EntityDeselectedEvent += OnEntityDeselected;
+                _selectedAgent.AgentDeselectedEvent += OnAgentDeselected;
 
-                _selectedEntity.OnSelected();
-                EntitySelectedEvent?.Invoke();
+                _selectedAgent.OnSelected();
+                AgentSelectedEvent?.Invoke();
             }
         }
 
         private void DeselectSelected()
         {
-            if (_selectedEntity != null)
+            if (_selectedAgent != null)
             {
-                _selectedEntity.OnDeselected();
-                _selectedEntity.EntityDeselectedEvent -= OnEntityDeselected;
+                _selectedAgent.OnDeselected();
+                _selectedAgent.AgentDeselectedEvent -= OnAgentDeselected;
             }
 
-            _selectedEntity = null;
-            EntityDeselectedEvent?.Invoke();
+            _selectedAgent = null;
+            AgentDeselectedEvent?.Invoke();
         }
     }
 }

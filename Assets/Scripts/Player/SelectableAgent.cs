@@ -4,10 +4,10 @@ using UnityEngine;
 
 namespace AgentSimulator.Player
 {
-    public class SelectableEntity : MonoBehaviour
+    public class SelectableAgent : MonoBehaviour
     {
-        public delegate void SelectableEntityHandler(SelectableEntity selectableEntity);
-        public event SelectableEntityHandler EntityDeselectedEvent;
+        public delegate void SelectableAgentHandler(SelectableAgent selectableAgent);
+        public event SelectableAgentHandler AgentDeselectedEvent;
 
         public virtual void OnSelected()
         {
@@ -21,7 +21,7 @@ namespace AgentSimulator.Player
 
         private void OnDisable()
         {
-            EntityDeselectedEvent?.Invoke(this);
+            AgentDeselectedEvent?.Invoke(this);
         }
     }
 }

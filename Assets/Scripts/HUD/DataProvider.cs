@@ -35,7 +35,7 @@ namespace AgentSimulator.UI
         {
             get
             {
-                return _selectionManager != null ? _selectionManager.IsAnyEntitySelected : false;
+                return _selectionManager != null ? _selectionManager.IsAnyAgentSelected : false;
             }
         }
 
@@ -43,8 +43,8 @@ namespace AgentSimulator.UI
         {
             get
             {
-                if (_selectionManager != null && _selectionManager.SelectedEntity != null)
-                    return _selectionManager.SelectedEntity.name;
+                if (_selectionManager != null && _selectionManager.SelectedAgent != null)
+                    return _selectionManager.SelectedAgent.name;
                 else
                     return "";
             }
@@ -54,9 +54,9 @@ namespace AgentSimulator.UI
         {
             get
             {
-                if (_selectionManager != null && _selectionManager.SelectedEntity != null)
+                if (_selectionManager != null && _selectionManager.SelectedAgent != null)
                 {
-                    if (_selectionManager.SelectedEntity.TryGetComponent<Agents.Health>(out Agents.Health health))
+                    if (_selectionManager.SelectedAgent.TryGetComponent<Agents.Health>(out Agents.Health health))
                     {
                         return health.CurrentValue;
                     }
@@ -76,8 +76,8 @@ namespace AgentSimulator.UI
 
             if (_selectionManager != null)
             {
-                _selectionManager.EntitySelectedEvent += OnEntitySelected;
-                _selectionManager.EntityDeselectedEvent += OnEntityDeselected;
+                _selectionManager.AgentSelectedEvent += OnAgentSelected;
+                _selectionManager.AgentDeselectedEvent += OnAgentDeselected;
             }
         }
 
@@ -91,8 +91,8 @@ namespace AgentSimulator.UI
 
             if (_selectionManager != null)
             {
-                _selectionManager.EntitySelectedEvent -= OnEntitySelected;
-                _selectionManager.EntityDeselectedEvent -= OnEntityDeselected;
+                _selectionManager.AgentSelectedEvent -= OnAgentSelected;
+                _selectionManager.AgentDeselectedEvent -= OnAgentDeselected;
             }
         }
 
@@ -106,12 +106,12 @@ namespace AgentSimulator.UI
             DataChangedEvent?.Invoke();
         }
 
-        private void OnEntitySelected()
+        private void OnAgentSelected()
         {
             DataChangedEvent?.Invoke();
         }
 
-        private void OnEntityDeselected()
+        private void OnAgentDeselected()
         {
             DataChangedEvent?.Invoke();
         }
