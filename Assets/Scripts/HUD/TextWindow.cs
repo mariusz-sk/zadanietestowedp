@@ -13,6 +13,7 @@ namespace AgentSimulator.UI
         public void Show()
         {
             gameObject.SetActive(true);
+            PrintNumbers();
         }
 
         public void Hide()
@@ -20,23 +21,24 @@ namespace AgentSimulator.UI
             gameObject.SetActive(false);
         }
 
-        private void OnEnable()
+        private void Start()
         {
-            PrintNumbers();
+            gameObject.SetActive(false);
         }
 
         public void PrintNumbers()
         {
             if (_textContent == null)
                 return;
-
+            
             string message = "";
-            for (int i=1; i<=100; i++)
+            for (int i = 1; i <= 100; i++)
             {
                 message += string.Format("{0} {1}{2}\n", i, (i % 3) == 0 ? "Marko " : "", (i % 5) == 0 ? "Polo" : "");
             }
 
             _textContent.text = message;
+
         }
     }
 }
