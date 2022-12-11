@@ -197,6 +197,7 @@ GameObject:
   - component: {fileID: 1368031074}
   - component: {fileID: 1368031073}
   - component: {fileID: 1368031075}
+  - component: {fileID: 8261161874526030605}
   m_Layer: 20
   m_Name: JohnAgentPrefab
   m_TagString: Untagged
@@ -330,6 +331,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageValue: 1
+--- !u!114 &8261161874526030605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4894613273543465847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba0aeaf6c163053478d69770f9b1e441, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4970634871173051935
 GameObject:
   m_ObjectHideFlags: 0
