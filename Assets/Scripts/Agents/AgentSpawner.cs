@@ -15,6 +15,16 @@ namespace AgentSimulator
         [SerializeField, Range(1, 60)]
         private int _maxAllowedAgentNumber = 30;
 
+
+        public int MaxAllowedAgentsNumber { get => _maxAllowedAgentNumber; }
+        public int NumSpawnedAgents { get => _numSpawnedAgents; }
+
+
+        public delegate void AgentSpawnerEventHandler();
+        public event AgentSpawnerEventHandler AgentSpawnedEvent;
+        public event AgentSpawnerEventHandler AgentKilledEvent;
+
+
         private Transform _transform;
 
         private Dictionary<Agent, List<Agent>> _agentLists;
@@ -111,6 +121,8 @@ namespace AgentSimulator
                 newAgent.Spawn(position);
                 
                 _numSpawnedAgents++;
+
+                AgentSpawnedEvent?.Invoke();
             }
 
             return newAgent;
@@ -144,6 +156,8 @@ namespace AgentSimulator
                 if (agentList.Contains(agent))
                 {
                     _numSpawnedAgents--;
+
+                    AgentKilledEvent?.Invoke();
 
                     break;
                 }
