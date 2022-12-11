@@ -37,12 +37,22 @@ namespace AgentSimulator.Player
             return _selectedEntity != null;
         }
 
+        private void OnEntityDeselected(SelectableEntity selectableEntity)
+        {
+            if (selectableEntity != null && selectableEntity == _selectedEntity)
+            {
+                DeselectSelected();
+            }
+        }
+
         private void SelectEntity(SelectableEntity selectableEntity)
         {
             _selectedEntity = selectableEntity;
 
             if (_selectedEntity != null)
             {
+                _selectedEntity.EntityDeselectedEvent += OnEntityDeselected;
+
                 _selectedEntity.OnSelected();
                 EntitySelectedEvent?.Invoke();
             }
@@ -51,7 +61,10 @@ namespace AgentSimulator.Player
         private void DeselectSelected()
         {
             if (_selectedEntity != null)
+            {
                 _selectedEntity.OnDeselected();
+                _selectedEntity.EntityDeselectedEvent -= OnEntityDeselected;
+            }
 
             _selectedEntity = null;
             EntityDeselectedEvent?.Invoke();
