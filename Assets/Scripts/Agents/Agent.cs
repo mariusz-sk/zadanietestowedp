@@ -4,10 +4,11 @@ using UnityEngine;
 
 namespace AgentSimulator.Agents
 {
+    // Agents are created by AgentSpawner by reusing objects from some kind of objects pool instantiated at start.
+    // Agent objects are never destroyed. Instead we deactivate them (returning to the pool) and we treat this as they were being killed.
+
     public class Agent : MonoBehaviour
     {
-        public string Name { get; set; }
-
         public delegate void AgentHandler(Agent agent);
         public event AgentHandler OnKilledEvent;
 
@@ -48,11 +49,13 @@ namespace AgentSimulator.Agents
 
         private void OnHealthIsOver()
         {
+            // When your health is over deactivate yourself (instead of destroing)
             Deactivate();
         }
 
         private void Deactivate()
         {
+            // Tell everyone interested that this agent has been killed
             OnKilledEvent?.Invoke(this);
             gameObject.SetActive(false);
         }

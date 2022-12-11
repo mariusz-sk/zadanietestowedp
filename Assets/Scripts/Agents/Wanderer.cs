@@ -4,6 +4,8 @@ using UnityEngine;
 
 namespace AgentSimulator.Agents
 {
+    // This component changes object orientation every given amount of time, set in the Inspector.
+    // You can also set in the Inspector rotation speed and what step in angles it should rotate by.
     public class Wanderer : MonoBehaviour
     {
         [SerializeField]
@@ -35,10 +37,12 @@ namespace AgentSimulator.Agents
 
         private void Update()
         {
+            // New direction between current and target object orientation
             Vector3 newDirection = Vector3.RotateTowards(_transform.forward, _targetDirection, _rotationSpeed * Time.deltaTime * Mathf.Deg2Rad, 1.0f);
             
             _transform.rotation = Quaternion.LookRotation(newDirection, Vector3.up);
 
+            // If it is time then generate next random orientation
             if (Time.timeSinceLevelLoad >= _nextChangeDirectionTime)
             {
                 CalculateNewOrientation();
@@ -54,14 +58,17 @@ namespace AgentSimulator.Agents
 
         private void CalculateNewOrientation()
         {
+            // Generate new random direction (0 - 360)
             float randomAngle = Random.value * 360.0f;
+            
+            // Snap this angle to nearest angle step - if angle step is set in the Inspector
             if (_directionAngleStep > 0.0f)
             {
                 randomAngle = Mathf.Round(randomAngle / _directionAngleStep) * _directionAngleStep;
             }
 
+            // Calculate direction vector from generated angle
             Quaternion randomAngleRotation = Quaternion.AngleAxis(randomAngle, Vector3.up);
-
             _targetDirection = randomAngleRotation * Vector3.forward;
         }
 

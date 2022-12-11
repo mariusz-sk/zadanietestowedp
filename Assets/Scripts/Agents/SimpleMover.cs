@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace AgentSimulator.Agents
 {
+    // Simple component to continuously move object forward with speed set in the Inspector
     public class SimpleMover : MonoBehaviour
     {
         [SerializeField]
